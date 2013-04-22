@@ -117,7 +117,7 @@ This is my "I think I'll learn Python" project. The code should be clear and rea
 
 - The whole punctuation thing. It doesn't handle the end of sentences well. Or at all. The dictionaries contain the "_end_" keyword which marks when a word is used at the end of a sentence, but it's currently unused. Keeping periods and commas in the dictionary would reduce false hits, but vastly expand the dictionary.
 
-- It would be handy to be able to handle input containing markup. (It handles Markdown pretty well.)
+- It would be handy to be able to handle input containing markup.
 
 - Articles like "the" can cause missed detection. (eg: "He drank the bear.") Using 3-grams (or more) would help catch these, but the 3-gram data set is more than 10x larger than the 2-gram set and I'm not certain it's worth the extra effort.
 
@@ -128,7 +128,7 @@ This is my "I think I'll learn Python" project. The code should be clear and rea
 - The distilled dictionary files are very close to being natural language Markov chains. I don't know what to do with that information, but there it is.
 
 ## Credits
-Thanks to [Jay Graves](http://blog.bockris.com/), who came up with the original idea and did some early work in this direction.
+Thanks to Jay Graves, who came up with the original idea and did some early work in this direction.
 
 Thanks to the thousands of people who have publicly shared some code that I have learned from.
 
