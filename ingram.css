@@ -1,0 +1,74 @@
+body {
+	font-size: 90%; font-family: Verdana, Arial, sans-serif;
+	padding-right: 120px;
+	line-height: 140%;
+}
+
+.ngram0 {
+	border-bottom: 2px solid #f00;
+}
+
+.ngram10 {
+	border-bottom: 2px dotted #f00;
+}
+
+.ngram20 {
+	border-bottom: 2px dotted #fc0;
+}
+
+.ngram30 {
+	border-bottom: 2px dotted #f30;
+}
+
+.ngram40 {
+	border-bottom: 2px dotted  #ccc;
+}
+
+.ngram50 {
+	border-bottom: 2px solid #fff;
+}
+
+.ngram60 {
+	border-bottom: 2px solid #fff;
+}
+
+.ngram70 {
+	border-bottom: 2px solid #fff;
+}
+
+.ngram80 {
+	border-bottom: 2px solid #fff;
+}
+
+.ngram90 {
+	border-bottom: 2px solid #fff;
+}
+
+.ngram100 {
+	border-bottom: 2px solid #fff;
+}
+
+span.ngramPopup {
+    position:relative;
+    margin: -1px;
+}
+  
+span.ngramPopup span{ 
+	display:none;
+}
+
+span.ngramPopup:hover {
+	border: 1px dotted #888;
+}
+
+span.ngramPopup:hover span {
+	display:block;
+    position:absolute;
+    font-size: 70%;
+    line-height: 120%;
+    top:20px;
+    border:2px solid #ccc;
+    background-color:#fff; color:#333;
+    padding:2px;
+    z-index: 1000;
+}
