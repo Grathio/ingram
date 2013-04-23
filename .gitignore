@@ -1,2 +1,4 @@
-
+*.todo
+*.pyc
 *.txt
+*.so
