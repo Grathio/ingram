@@ -41,7 +41,7 @@ def file_consolidate(filename):
     in_file = codecs.open(filename, 'r', 'utf-8')
     for data_in in in_file:
         sorting_hat.append(data_in)
-    in_file.closed
+    in_file.close()
     sorting_hat.sort()      # Put all the duplicate entires next to each other.
 
     # Consolidate duplicates while writing to an external file.
@@ -65,7 +65,7 @@ def file_consolidate(filename):
     out_file.write(str(old_total))
     out_file.write("\n")
 
-    out_file.closed
+    out_file.close()
     os.remove(filename)
     os.rename(filename+".tmp", filename)
 
@@ -77,7 +77,7 @@ def file_consolidate(filename):
         if len(split_data) == 2:
             data_dict = {"name": split_data[0], "value": int(split_data[1])}
             sorting_hat.append(data_dict)
-    in_file.closed
+    in_file.close()
     sorting_hat.sort(key=itemgetter('value'), reverse=True)
     out_file = codecs.open(filename + ".tmp", 'w', 'utf-8')
     for item in sorting_hat:
@@ -85,7 +85,7 @@ def file_consolidate(filename):
         out_file.write("\t")
         out_file.write(str(item["value"]))
         out_file.write("\n")
-    out_file.closed
+    out_file.close()
     os.remove(filename)
     os.rename(filename + ".tmp", filename)
 
@@ -109,12 +109,12 @@ def process_dict(source_name, outpath, a, b):
 
         out_file = codecs.open(ip_file_name, "w")    # Create the "in progress" file just in case the process gets interrupted.
         out_file.write("This file will be removed when processing this dictionary entry (" + a + b + ") is complete.")
-        out_file.closed
+        out_file.close()
 
         # Create empty files to append entries to
         for c in config["char_list"]:
             out_file = codecs.open(outpath + "/" + a + "/" + a + b + c + ".txt", 'w', 'utf-8')
-            out_file.closed
+            out_file.close()
 
         # Process the input file
         in_file = gzip.open(source_name, "r")
@@ -148,11 +148,11 @@ def process_dict(source_name, outpath, a, b):
                         out_file.write("\t")
                         out_file.write(str(running_total))
                         out_file.write("\n")
-                        out_file.closed
+                        out_file.close()
                     last_pair = this_pair
                     running_total = 0
                     pub_count = 0
-        in_file.closed
+        in_file.close()
 
         # Optimize the new files (merge duplicates)
         sys.stdout.write("\nOptimizing...")

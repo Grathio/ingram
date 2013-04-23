@@ -36,7 +36,7 @@ def find_frequency(dictionary_location, s):
                     if data_list[0] == s:
                         frequency = int(data_list[1])
                         break
-                in_file.closed
+                in_file.close()
             else:
                 frequency = None    # No dictionary found for this guy.
     return frequency
@@ -115,7 +115,7 @@ def start_report(config):
     if config["out"] is not None:
         out_file = codecs.open(config["out"], 'a', 'utf-8')
         out_file.write(out_string)
-        out_file.closed
+        out_file.close()
 
 
 def end_report(config):
@@ -127,7 +127,7 @@ def end_report(config):
     if config["out"] is not None:
         out_file = codecs.open(config["out"], 'a', 'utf-8')
         out_file.write(out_string)
-        out_file.closed
+        out_file.close()
 
 
 def show_report(config, report, fragment=""):
@@ -158,7 +158,7 @@ def show_report(config, report, fragment=""):
             out_file = codecs.open(config["out"], 'a', 'utf-8')
             output = csv.writer(out_file, dialect='excel')
             output.writerow([config["word_count"], report["word"], report["score"], report["frequency_before"], report["frequency_after"]])
-            out_file.closed
+            out_file.close()
         else:
             output = csv.writer(sys.stdout, dialect='excel')
             output.writerow([config["word_count"], report["word"]+fragment, report["score"], report["frequency_before"], report["frequency_after"]])
@@ -167,7 +167,7 @@ def show_report(config, report, fragment=""):
         if config["out"] is not None:
             out_file = codecs.open(config["out"], 'a', 'utf-8')
             out_file.write(out_string)
-            out_file.closed
+            out_file.close()
         else:
             sys.stdout.write(out_string)
 
@@ -218,7 +218,7 @@ def add_custom(config):
     if not clean_add_text in config["custom_dict"]:
         f = codecs.open(config["dict"]+config["custom_dict_name"], 'a', 'utf-8')
         f.write("\n"+config["add"])
-        f.closed
+        f.close()
         load_custom_dict(config)
         print("Word [%s] will now be ignored when using this dictionary." % config["add"])
     else:
@@ -237,8 +237,8 @@ def remove_custom(config):
                 out_file.write(data_in)
             else:
                 found_count += 1
-        in_file.closed
-        out_file.closed
+        in_file.close()
+        out_file.close()
 
         os.remove(config["dict"]+config["custom_dict_name"])
         os.rename(config["dict"]+config["custom_dict_name"]+".tmp", config["dict"]+config["custom_dict_name"])
@@ -267,7 +267,7 @@ def load_custom_dict(config):
         f = codecs.open(config["dict"]+config["custom_dict_name"], 'w', 'utf-8')
         f.write("# Custom dictionary white list.\n")
         f.write("# Each entry should be on a line by its self.\n")
-        f.closed
+        f.close()
 
     if os.path.exists(config["dict"]):
         if os.path.isfile(config["dict"]+config["custom_dict_name"]):
