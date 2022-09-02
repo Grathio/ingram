@@ -1,6 +1,9 @@
 # Ingram
 A tool for checking spelling and grammar using Google's N-gram corpus.
 
+## ⚠️Attention⚠️ ##
+Since I haven't touched this project in a decade and it's honestly not great at what it does, I'm archiving it. If you do decide to poke around I hope you find something useful here. 
+
 ## Description
 Ingram analyzes the familiarity of text using [Google's Ngram collection](http://storage.googleapis.com/books/ngrams/books/datasetsv2.html), a data set that shows the frequency of words and phrases gleaned from scanning 4.5 million books. Feeding it English text will result in output that highlights uncommon words or word usage.
 
